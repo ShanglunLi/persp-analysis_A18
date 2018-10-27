@@ -1,0 +1,107 @@
+\documentclass[12pt]{article}
+\usepackage{enumerate}
+\usepackage{mathrsfs}
+\usepackage{setspace}
+\usepackage{xy}
+\parindent 0in
+\let\svpar\par
+\newenvironment{hang}{\hangindent 0.7in\def\par{\svpar\hangindent
+0.7in\parindent 0.7in}}
+{\let\par\svpar\parindent 0in}
+\usepackage{pgfplots}
+\usepackage{bussproofs}
+\usepackage{pgfplotstable}
+\usetikzlibrary{automata,positioning,arrows,matrix,arrows.meta}
+\usepackage{courier}
+\xyoption{all}
+\newcommand\tikzmark[1]{%
+  \tikz[overlay,remember picture] \coordinate (#1);}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{stackengine}
+\def\delequal{\mathrel{\ensurestackMath{\stackon[1pt]{=}{\scriptstyle\Delta}}}}
+\usepackage{mathtools}
+\usepackage{wrapfig}
+\usepackage{amsthm}
+\usepackage{grffile}
+\usepackage{caption}
+\usepackage{amsmath}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\usepackage[export]{adjustbox}
+\renewcommand\qedsymbol{$ $}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof} }
+\BeforeBeginEnvironment{solution}{\begingroup\color{blue}}
+\AfterEndEnvironment{solution}{\endgroup}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[backgroundcolor=cyan!20,linecolor=cyan,textsize=footnotesize]{todonotes}
+\usepackage[left=0.7in,right=0.7in, top=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\begin{document}
+\title{MACS 30000 Assignment 4}
+\author{Shanglun Li}
+
+\maketitle 
+\hfill\break
+\doublespacing
+{\Large \textbf{Problem 1.}}
+\begin{itemize}
+\item[(a)] See \texttt{PhoneSurvey\underline{ }filled.xlsx}
+\item[(b)] I called all the 200 numbers. Around 10 people picked up the phone, but only 2 people answered the research questions. Thus, the number of people with $Response = 1$ is 2. Therefore, there are 198 people did not respond. The corresponding response rate is $2 / 200 = 1\%$. 
+\item[(c)] All of the two people whom $Response = 1$ answered the voting question (100\%). And, all the two people answered the age question (100\%).
+\item[(d)] My area code is 248, where the time zone is Eastern. I called some of the numbers around 4pm E.D.T. on Wednesday, and the rest of them around 7pm E.D.T on Wednesday. I think the time to call the number will affect the response rate. For example, in my case, I called some of the numbers around 4pm, which is the working hour for most people, which means many people will not pick up the phone. In addition, for the rest of the numbers I called around 7pm, some people are hanging out with friends or having dinner. Thus, wisely choosing a time to call people can improve the response rate.
+\item[(e)] The ages of the two respondents are 22 and 50, respectively. Thus, the median of age is 36. The area code 248 is from Oakland county in Michigan. According to American FactFinder website, the median age there is 40.9 years old (https://factfin-der.census.gov/faces/nav/jsf/pages/inde-x.xhtml). Since the sample size is 2, which is way too small to be representative to the population, the bias of age is expected. 
+\item[(f)] For the two respondents, one person voted Trump and the other one voted other. Thus, 50\% of my respondent voted Trump, and 0\% of my respondent voted Clinton. According to Politico website, 47.6\% of the population voted Trump, and 47.3\% of the population voted Clinton (https://www.politico.com/mapdata-2016/2016-election/results/map/president/). The actual result is expected to be different from the result I collected, since the number of respondents is too small. To test if the order in which I say the candidates or categories in the survey question influences the results, we should have a large enough sample of respondents. Then, we can randomly group these respondents into two groups with different order in which I say the candidates or categories. Next, we can compare the result of two groups and find if there is any influence on the results.
+\end{itemize}
+\newpage
+\hfill\break
+{\Large \textbf{Problem 2.}}\\
+
+\tab The paper aimed to demonstrate non-representative polls could also predict the presidential election as accurately as those traditional representative polls do with the utilization of proper adjustment technique. The paper took an Xbox survey as an example.\\
+\tab As shown in Figure 1 (Wang et al., 2005), of the eight variables reported from the respondents, sex, age and education from the Xbox sample are the least representative of the data. On the other hand, race, state and 2008 vote are the most representative. The reason that sex and age from the Xbox sample are the least representative of the data is that generally, young men dominate the Xbox users, which makes the deviation of the data: men make up 93\% of the Xbox sample, but only 47\% of the electorate; 18- to 29- year-olds comprise 65\% of the Xbox dataset, compared to 19\% in the exit poll (Wang et al., 2005). In addition, for education level variable, that there are fewer college graduates in the Xbox population (about 50\% college graduate in Xbox survey compared to about 30\% college graduate in 2012 Exit Poll in Wang et al., 2005) suggests that Xbox users generally have a lower education level than the voting population, since young people, the dominate population of Xbox Users, tend to have lower education level.\\
+\tab The paper utilized an adjustment technique called multilevel regression and post-stratification (MRP) to deal with the non-representative data. In order to perform a post-stratification re-weighting of the respondents, authors first divided the population into characteristics subgroups by all possible combinations of the variables in the Xbox survey. Then, the authors calculated the weights of each characteristics subgroup by the proportion of the electorate in the corresponding subgroups. They used exit poll data from the 2008 presidential election to obtain the weights, and applied the weights to the Xbox survey data.\\
+\tab For Xbox raw, according to Fig. 2 (Wang et al., 2005), it would have predicted that Romney would win during the last three weeks before 2012 U.S. Presidential election, since the two-party Obama support was below 50\% most of the time in Xbox raw data. On the other hand, for Pollster.com forecast data, it would have predicted that the election outcome as uncertain during the last three weeks before election, since although the two-party Obama support was above 50\% from Sep 24th to Oct 8th, it dropped very close to 50\% later on, and the trend kept moving up and down.  According to Fig. 3 (Wang et al., 2005), the Xbox post-stratified data would have predicted that Obama would win during the last three weeks before 2012 election, since the two-party Obama support was significantly above 50\% in Xbox post-stratified data.
+
+\newpage
+\begin{center}
+{\Large \textbf{References}}
+\end{center}
+
+\hangindent=0.7cm 2016 Election Results: President Live Map by State, Real-Time Voting Updates. (n.d.). Retrieved from https://www.politico.com/mapdata-2016/2016-election/results/map/president/\\
+
+\hangindent=0.7cm Data Access and Dissemination Systems (DADS). (2010, October 05). Retrieved from https://factfin-der.census.gov/faces/nav/jsf/pages/index.xhtml\\
+
+\hangindent=0.7cm Wang, W., Rothschild, D., Goel, S., \& Gelman, A. (2015). Forecasting elections with non-representative polls. International Journal of Forecasting, 31(3), 980-991. doi:10.1016/j.ijforecast.2014.06.001
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
